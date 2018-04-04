@@ -68,10 +68,12 @@ public class CordovaCall extends CordovaPlugin {
 			if(android.os.Build.VERSION.SDK_INT >= 26) {
 				phoneAccount = new PhoneAccount.Builder(handle, appName)
 					.setCapabilities(PhoneAccount.CAPABILITY_SELF_MANAGED)
+					.addSupportedUriScheme(PhoneAccount.SCHEME_SIP)
 					.build();
 			} else {
 				phoneAccount = new PhoneAccount.Builder(handle, appName)
-					.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER)
+					.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER | PhoneAccount.CAPABILITY_CALL_PROVIDER)
+					.addSupportedUriScheme(PhoneAccount.SCHEME_SIP)
 				 	.build();
 			}
 			
