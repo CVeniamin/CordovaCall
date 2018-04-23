@@ -94,7 +94,7 @@ public class MyConnectionService extends ConnectionService {
         };
         //  connection.setAddress(Uri.parse(request.getExtras().getString("from")), TelecomManager.PRESENTATION_ALLOWED);
         //  connection.setCallerDisplayName(request.getExtras().getString("from"), TelecomManager.PRESENTATION_ALLOWED);
-        connection.setAddress(Uri.parse(request.getExtras().getString("from")), TelecomManager.PRESENTATION_UNKNOWN);
+        connection.setAddress(Uri.parse(request.getExtras().getString("from")), TelecomManager.PRESENTATION_ALLOWED);
         connection.setCallerDisplayName(request.getExtras().getString("from"), TelecomManager.PRESENTATION_ALLOWED);
         Icon icon = CordovaCall.getIcon();
         if(icon != null) {
@@ -169,7 +169,7 @@ public class MyConnectionService extends ConnectionService {
         // connection.setAddress(Uri.parse(request.getExtras().getString("to")), TelecomManager.PRESENTATION_ALLOWED);
         //  connection.setCallerDisplayName(request.getExtras().getString("to"), TelecomManager.PRESENTATION_ALLOWED);
         
-        connection.setAddress(Uri.parse(request.getExtras().getString("to")), TelecomManager.PRESENTATION_UNKNOWN);
+        connection.setAddress(Uri.parse(request.getExtras().getString("to")), TelecomManager.PRESENTATION_ALLOWED);
         connection.setCallerDisplayName(request.getExtras().getString("to"), TelecomManager.PRESENTATION_ALLOWED);
         
         Icon icon = CordovaCall.getIcon();
