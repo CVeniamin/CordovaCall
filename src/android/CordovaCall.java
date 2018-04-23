@@ -250,7 +250,7 @@ public class CordovaCall extends CordovaPlugin {
     }
 
     private void sendCall() {
-	// Uri uri = Uri.fromParts("tel", to, null);
+	Uri uri = Uri.fromParts("tel", to, null);
         Bundle callInfoBundle = new Bundle();
         callInfoBundle.putString("to",to);
         Bundle callInfo = new Bundle();
