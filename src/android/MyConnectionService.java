@@ -93,7 +93,9 @@ public class MyConnectionService extends ConnectionService {
             }
         };
         //  connection.setAddress(Uri.parse(request.getExtras().getString("from")), TelecomManager.PRESENTATION_ALLOWED);
-        connection.setCallerDisplayName(request.getExtras().getString("from"), TelecomManager.PRESENTATION_ALLOWED);
+        //  connection.setCallerDisplayName(request.getExtras().getString("from"), TelecomManager.PRESENTATION_ALLOWED);
+        connection.setAddress(Uri.parse(request.getExtras().getString("from")), TelecomManager.PRESENTATION_UNKNOWN);
+        connection.setCallerDisplayName(request.getExtras().getString("from"), TelecomManager.PRESENTATION_UNKNOWN);
         Icon icon = CordovaCall.getIcon();
         if(icon != null) {
             StatusHints statusHints = new StatusHints((CharSequence)"", icon, new Bundle());
@@ -165,7 +167,11 @@ public class MyConnectionService extends ConnectionService {
             }
         };
         // connection.setAddress(Uri.parse(request.getExtras().getString("to")), TelecomManager.PRESENTATION_ALLOWED);
-        connection.setCallerDisplayName(request.getExtras().getString("to"), TelecomManager.PRESENTATION_ALLOWED);
+        //  connection.setCallerDisplayName(request.getExtras().getString("to"), TelecomManager.PRESENTATION_ALLOWED);
+        
+        connection.setAddress(Uri.parse(request.getExtras().getString("to")), TelecomManager.PRESENTATION_UNKNOWN);
+        connection.setCallerDisplayName(request.getExtras().getString("to"), TelecomManager.PRESENTATION_UNKNOWN);
+        
         Icon icon = CordovaCall.getIcon();
         if(icon != null) {
             StatusHints statusHints = new StatusHints((CharSequence)"", icon, new Bundle());
