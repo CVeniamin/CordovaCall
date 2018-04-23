@@ -72,9 +72,10 @@ public class CordovaCall extends CordovaPlugin {
 					.build();
 			} else {
 				phoneAccount = new PhoneAccount.Builder(handle, appName)
-					.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER | PhoneAccount.CAPABILITY_CALL_PROVIDER)
+					.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER)
 					.addSupportedUriScheme(PhoneAccount.SCHEME_SIP)
 				 	.build();
+					//.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER | PhoneAccount.CAPABILITY_CALL_PROVIDER)
 			}
 			
 			tm.registerPhoneAccount(phoneAccount);
@@ -249,7 +250,7 @@ public class CordovaCall extends CordovaPlugin {
     }
 
     private void sendCall() {
-        Uri uri = Uri.fromParts("tel", to, null);
+	// Uri uri = Uri.fromParts("tel", to, null);
         Bundle callInfoBundle = new Bundle();
         callInfoBundle.putString("to",to);
         Bundle callInfo = new Bundle();
