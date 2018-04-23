@@ -250,14 +250,14 @@ public class CordovaCall extends CordovaPlugin {
     }
 
     private void sendCall() {
-	Uri uri = Uri.fromParts("sip", to, null);
+	Uri uri = Uri.fromParts("tel", to, null);
         Bundle callInfoBundle = new Bundle();
         callInfoBundle.putString("to",to);
         Bundle callInfo = new Bundle();
         callInfo.putParcelable(TelecomManager.EXTRA_OUTGOING_CALL_EXTRAS,callInfoBundle);
         callInfo.putParcelable(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE, handle);
-        callInfo.putBoolean(TelecomManager.EXTRA_START_CALL_WITH_VIDEO_STATE, true);
-    	callInfo.putBoolean(TelecomManager.EXTRA_START_CALL_WITH_SPEAKERPHONE, true);
+        callInfo.putBoolean(TelecomManager.EXTRA_START_CALL_WITH_VIDEO_STATE, false);
+	// callInfo.putBoolean(TelecomManager.EXTRA_START_CALL_WITH_SPEAKERPHONE, true);
         tm.placeCall(uri, callInfo);
         this.callbackContext.success("Outgoing call successful");
     }
