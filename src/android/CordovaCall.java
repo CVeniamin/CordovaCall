@@ -72,10 +72,10 @@ public class CordovaCall extends CordovaPlugin {
 					.build();
 			} else {
 				phoneAccount = new PhoneAccount.Builder(handle, appName)
-					.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER)
+					//.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER)
+					.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER | PhoneAccount.CAPABILITY_CALL_PROVIDER)
 					.addSupportedUriScheme(PhoneAccount.SCHEME_SIP)
 				 	.build();
-					//.setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER | PhoneAccount.CAPABILITY_CALL_PROVIDER)
 			}
 			
 			tm.registerPhoneAccount(phoneAccount);
